@@ -1,0 +1,9 @@
+apiVersion: networking.gke.io/v1
+kind: ManagedCertificate
+metadata:
+  name: collective-arc-cert
+  namespace: collective-arc
+spec:
+  domains:
+    - collectivearc.org
+    - www.collectivearc.org

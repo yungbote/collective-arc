@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: frontend-collective-arc
+  namespace: collective-arc
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: frontend-collective-arc
+  template:
+    metadata:
+      labels:
+        app: frontend-collective-arc
+    spec:
+      containers:
+        - name: frontend-collective-arc
+          image: yungbote18/collective-arc-frontend:v1
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 80
+          resources:
+            requests:
+              cpu: "50m"
+              memory: "64Mi"
+            limits:
+              cpu: "200m"
+              memory: "256Mi"

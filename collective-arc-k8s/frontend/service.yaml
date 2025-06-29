@@ -1,0 +1,14 @@
+# frontend/service.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: frontend-collective-arc
+  namespace: collective-arc
+spec:
+  type: ClusterIP
+  selector:
+    app: frontend-collective-arc
+  ports:
+    - name: http
+      port: 80
+      targetPort: 80
