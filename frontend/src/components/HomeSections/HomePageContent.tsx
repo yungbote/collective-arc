@@ -24,8 +24,8 @@ export default function HomePageContent() {
         <TimelineSection />
         <SlideshowSection />
         {/*<TestimonialsSection />*/}
-        <EventsSection />
-        <NewsletterSection />
+        {/*<EventsSection />*/}
+        {/*<NewsletterSection />*/}
         <Footer />
       </div>
     </TooltipProvider>

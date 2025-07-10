@@ -136,7 +136,7 @@ export function Footer() {
         </div>
 
         {/* Newsletter Section */}
-        <div className="border-t border-border/40">
+        {/*<div className="border-t border-border/40">
           <div className="px-4 sm:px-6 lg:px-8 py-8 lg:py-10">
             <div className="mx-auto max-w-2xl text-center">
               <h3 className="text-lg font-semibold leading-6 text-foreground">
@@ -162,7 +162,7 @@ export function Footer() {
               </form>
             </div>
           </div>
-        </div>
+        </div>*/}
 
         {/* Bottom Section */}
         <div className="border-t border-border/40">

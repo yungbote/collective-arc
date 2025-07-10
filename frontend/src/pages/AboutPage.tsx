@@ -26,8 +26,7 @@ export function AboutPage() {
                 About Collective Arc
               </h1>
               <p className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl text-muted-foreground max-w-2xl px-4 sm:px-0">
-                A new coalition of operations centered around athletes, recycling, and community, 
-                launching to create positive change.
+                A new coalition of operations centered around athletes, recycling, and community. 
               </p>
             </div>
           </div>
