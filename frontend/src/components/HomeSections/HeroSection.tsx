@@ -36,7 +36,7 @@ export function HeroSection() {
                 }`}
               >
                 <span className="bg-clip-text text-transparent bg-gradient-to-r from-green-500 via-emerald-500 to-teal-600 animate-gradient">
-                  Welcome to Collective Arc
+                  Welcome to Collective ARC
                 </span>
               </h1>
 
@@ -45,7 +45,7 @@ export function HeroSection() {
                   isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
                 }`}
               >
-                A coalition of operations & initiatives around athletes, recycling, and community.
+                A coalition of operations & initiatives centered around athletes, recycling, and community.
               </p>
 
               <p 
@@ -78,7 +78,7 @@ export function HeroSection() {
                   className="group border-2 hover:border-green-500 transition-all duration-300 text-sm sm:text-base px-4 sm:px-6 h-9 sm:h-10"
                   asChild
                 >
-                  <a href="#newsletter">
+                  <a href="#footer">
                     Join the Movement
                     <Rocket className="ml-1.5 sm:ml-2 h-3 w-3 sm:h-4 sm:w-4 group-hover:text-green-500 transition-colors" />
                   </a>

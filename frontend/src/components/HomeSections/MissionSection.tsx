@@ -2,26 +2,27 @@
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card"
 import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip"
 import { Users, Recycle, BookOpen } from "lucide-react"
+import { Link } from "react-router-dom"
 
 const missions = [
   {
     id: "ask",
     icon: <Users className="h-8 w-8 sm:h-9 sm:w-9 lg:h-10 lg:w-10 text-green-500" />,
-    title: "Operation Ask",
+    title: "Operation ASK",
     subtitle: "Athletes Sharing Knowledge",
     description: "A network of collective knowledge, fostering mentorship and shared experiences among athletes.",
   },
   {
     id: "art",
     icon: <Recycle className="h-8 w-8 sm:h-9 sm:w-9 lg:h-10 lg:w-10 text-emerald-500" />,
-    title: "Operation Art",
+    title: "Operation ART",
     subtitle: "Athletes Recycling & Thrifting",
-    description: "A combination of events and services aimed at combatting destructive environmental practices through sustainable actions.",
+    description: "A combination of events and services aimed at combating destructive environmental practices through sustainable, community-led actions.",
   },
   {
     id: "all",
     icon: <BookOpen className="h-8 w-8 sm:h-9 sm:w-9 lg:h-10 lg:w-10 text-teal-500" />,
-    title: "Operation All",
+    title: "Operation ALL",
     subtitle: "Athletes Learning & Literacy",
     description: "A network designed to inspire and educate youth through learning programs and literacy initiatives.",
   },
@@ -36,35 +37,37 @@ export function MissionsSection() {
             Our Missions
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
-            {missions.map((mission, index) => (
-              <Tooltip key={mission.id} delayDuration={200}>
-                <TooltipTrigger asChild>
-                  <Card 
-                    className="flex flex-col h-full hover:shadow-xl transition-all duration-300 cursor-pointer group border-0 shadow overflow-hidden"
-                    style={{ animationDelay: `${index * 0.1}s` }}
-                  >
-                    <CardHeader className="items-center text-center pb-3 sm:pb-4 pt-6 sm:pt-8">
-                      <div className="mb-3 sm:mb-4 transform group-hover:scale-110 transition-transform duration-300">
-                        {mission.icon}
-                      </div>
-                      <CardTitle className="text-lg sm:text-xl lg:text-2xl font-semibold">{mission.title}</CardTitle>
-                      <CardDescription className="text-xs sm:text-sm mt-1">{mission.subtitle}</CardDescription>
-                    </CardHeader>
-                    <CardContent className="flex-grow pb-6 sm:pb-8">
-                      <p className="text-xs sm:text-sm text-muted-foreground text-center leading-relaxed">
-                        Hover to learn more about our commitment to sustainable change.
-                      </p>
-                    </CardContent>
-                  </Card>
-                </TooltipTrigger>
-                <TooltipContent
-                  side="bottom"
-                  className="max-w-xs p-3 sm:p-4 bg-background text-foreground border shadow-lg rounded-lg"
-                >
-                  <p className="text-xs sm:text-sm leading-relaxed">{mission.description}</p>
-                </TooltipContent>
-              </Tooltip>
-            ))}
+{missions.map((mission, index) => (
+  <Tooltip key={mission.id} delayDuration={200}>
+    <TooltipTrigger asChild>
+      <Link to={`/operations/${mission.id}`}>
+        <Card 
+          className="flex flex-col h-full hover:shadow-xl transition-all duration-300 cursor-pointer group border-0 shadow overflow-hidden"
+          style={{ animationDelay: `${index * 0.1}s` }}
+        >
+          <CardHeader className="items-center text-center pb-3 sm:pb-4 pt-6 sm:pt-8">
+            <div className="mb-3 sm:mb-4 transform group-hover:scale-110 transition-transform duration-300">
+              {mission.icon}
+            </div>
+            <CardTitle className="text-lg sm:text-xl lg:text-2xl font-semibold">{mission.title}</CardTitle>
+            <CardDescription className="text-xs sm:text-sm mt-1">{mission.subtitle}</CardDescription>
+          </CardHeader>
+          <CardContent className="flex-grow pb-6 sm:pb-8">
+            {/*<p className="text-xs sm:text-sm text-muted-foreground text-center leading-relaxed">
+              Our commitment to sustainable change.
+            </p>*/}
+          </CardContent>
+        </Card>
+      </Link>
+    </TooltipTrigger>
+    <TooltipContent
+      side="bottom"
+      className="max-w-xs p-3 sm:p-4 bg-background text-foreground border shadow-lg rounded-lg"
+    >
+      <p className="text-xs sm:text-sm leading-relaxed">{mission.description}</p>
+    </TooltipContent>
+  </Tooltip>
+))}
           </div>
         </div>
       </div>

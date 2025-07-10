@@ -18,12 +18,12 @@ export default function HomePageContent() {
     <TooltipProvider delayDuration={300}>
       <div className="flex flex-col items-center w-full overflow-x-hidden">
         <HeroSection />
-        <StatisticsSection />
         <MissionsSection />
+        <StatisticsSection />
         <AthleteCTASection />  {/* Add the new Athlete CTA section here */}
         <TimelineSection />
         <SlideshowSection />
-        <TestimonialsSection />
+        {/*<TestimonialsSection />*/}
         <EventsSection />
         <NewsletterSection />
         <Footer />

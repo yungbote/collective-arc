@@ -31,7 +31,7 @@ export function Footer() {
   }
 
   return (
-    <footer className="w-full border-t bg-background">
+    <footer className="w-full border-t bg-background" id="footer">
       {/* Main Footer */}
       <div className="mx-auto max-w-7xl">
         <div className="px-4 sm:px-6 lg:px-8 py-12 lg:py-16">

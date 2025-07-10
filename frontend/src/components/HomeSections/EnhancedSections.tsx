@@ -73,10 +73,10 @@ function AnimatedCounter({ end, duration = 2000, suffix = "" }: { end: number, d
 // Goals Section (replacing Statistics)
 export function StatisticsSection() {
   const goals = [
-    { icon: <Users className="h-6 w-6 sm:h-7 sm:w-7 lg:h-8 lg:w-8" />, value: 1000, suffix: "+", label: "Athletes to Engage", subtext: "Goal by 2026" },
-    { icon: <Leaf className="h-6 w-6 sm:h-7 sm:w-7 lg:h-8 lg:w-8" />, value: 50, suffix: "+", label: "Environmental Events", subtext: "Planned for Year 1" },
-    { icon: <BookOpen className="h-6 w-6 sm:h-7 sm:w-7 lg:h-8 lg:w-8" />, value: 25, suffix: "", label: "Partner Schools", subtext: "Target for Literacy Program" },
-    { icon: <Trophy className="h-6 w-6 sm:h-7 sm:w-7 lg:h-8 lg:w-8" />, value: 10, suffix: "+", label: "Cities to Reach", subtext: "Expansion Goal" }
+    { icon: <Users className="h-6 w-6 sm:h-7 sm:w-7 lg:h-8 lg:w-8" />, value: 500, suffix: "+", label: "Aspiring Athletes Reached", /*subtext: "Goal by 2026"*/ },
+    { icon: <Leaf className="h-6 w-6 sm:h-7 sm:w-7 lg:h-8 lg:w-8" />, value: 5, suffix: "+", label: "Environmental Events", /*subtext: "Planned for Year 1"*/ },
+    { icon: <BookOpen className="h-6 w-6 sm:h-7 sm:w-7 lg:h-8 lg:w-8" />, value: 7, suffix: "+", label: "Partner Schools", /*subtext: "Target for Literacy Program"*/ },
+    { icon: <Trophy className="h-6 w-6 sm:h-7 sm:w-7 lg:h-8 lg:w-8" />, value: 5, suffix: "+", label: "Mentors Added", /*subtext: "Expansion Goal"*/ }
   ]
 
   return (
@@ -90,7 +90,7 @@ export function StatisticsSection() {
             Our Vision & Goals
           </h2>
           <p className="text-sm sm:text-base md:text-lg text-muted-foreground text-center mb-8 sm:mb-10 md:mb-12 max-w-2xl mx-auto px-4 sm:px-0">
-            We're just getting started. Here's what we're working towards in our mission to unite athletes in service of their communities.
+            We're just getting started. In our first year, here's what we're working towards in our mission to unite athletes in service of their communities.
           </p>
           
           <div className="grid grid-cols-1 xs:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8">
@@ -164,53 +164,78 @@ export function TestimonialsSection() {
 export function TimelineSection() {
   const milestones = [
     {
-      year: "2025",
-      quarter: "Q1-Q2",
-      title: "Foundation & Launch",
-      description: "Official launch of Collective Arc with our three core operations and initial athlete recruitment.",
+      year: "2023",
+      quarter: "",
+      title: "Initial Conception Of Gifts & Thrifts",
+      description: "An idea for a popup thrifting exchange was formed in an Atlanta coffee shop.",
       icon: <Rocket className="h-4 w-4 sm:h-5 sm:w-5" />,
+      status: "past"
+    },
+    {
+      year: "2024",
+      quarter: "",
+      title: "Gifts & Thrifs I Launches in West Chester PA",
+      description: "On January 6th, our first popup thrifting event was held.",
+      icon: <Users className="h-4 w-4 sm:h-5 sm:w-5" />,
+      status: "past"
+    },
+    {
+      year: "2024",
+      quarter: "",
+      title: "Gifts & Thrifts II Launches in West Chester PA",
+      description: "On May 18th, the West Chester Green Team held the event at Porch Fest.",
+      icon: <Leaf className="h-4 w-4 sm:h-5 sm:w-5" />,
+      status: "past"
+    },
+    {
+      year: "2024",
+      quarter: "",
+      title: "Gifts & Thrifts III Launches in Lousville KY",
+      description: "In October, Gifts and Thrifts III launches in Lynn Family Stadium.",
+      icon: <BookOpen className="h-4 w-4 sm:h-5 sm:w-5" />,
       status: "current"
     },
     {
       year: "2025",
-      quarter: "Q3",
-      title: "Mentorship Program Launch",
-      description: "Launch our athlete mentorship network, connecting professionals with aspiring athletes.",
-      icon: <Users className="h-4 w-4 sm:h-5 sm:w-5" />,
-      status: "upcoming"
-    },
-    {
-      year: "2025",
-      quarter: "Q4",
-      title: "First Environmental Events",
-      description: "Host our inaugural equipment recycling drives and sustainable sports initiatives.",
-      icon: <Leaf className="h-4 w-4 sm:h-5 sm:w-5" />,
-      status: "upcoming"
-    },
-    {
-      year: "2026",
-      quarter: "Q1",
-      title: "School Partnerships",
-      description: "Launch literacy programs in 10 partner schools with athlete reading sessions.",
-      icon: <BookOpen className="h-4 w-4 sm:h-5 sm:w-5" />,
-      status: "future"
-    },
-    {
-      year: "2026",
-      quarter: "Q2-Q4",
-      title: "National Expansion",
-      description: "Expand operations to 5 major cities and build regional athlete networks.",
+      quarter: "",
+      title: "Official Launch of Collective ARC",
+      description: "With our three core operations: ASK, ART, and ALL.",
       icon: <TrendingUp className="h-4 w-4 sm:h-5 sm:w-5" />,
       status: "future"
     },
     {
-      year: "2027",
+      year: "2025",
       quarter: "",
-      title: "Community Impact",
-      description: "Reach our goal of 1,000+ athletes engaged and 50+ community events hosted.",
+      title: "Mentorship Program Launches",
+      description: "Under operation ASK.",
       icon: <Trophy className="h-4 w-4 sm:h-5 sm:w-5" />,
       status: "future"
-    }
+    },
+    {
+      year: "2025",
+      quarter: "",
+      title: "Gifts & Thrifts IV Launch",
+      description: "Launch at Lynn Family Stadium",
+      icon: <Trophy className="h-4 w-4 sm:h-5 sm:w-5" />,
+      status: "future"
+    },
+    {
+      year: "2025",
+      quarter: "",
+      title: "School Outreach Partnerships Begin",
+      description: "",
+      icon: <Trophy className="h-4 w-4 sm:h-5 sm:w-5" />,
+      status: "future"
+    },
+    {
+      year: "2026",
+      quarter: "",
+      title: "Gifts & Thrifts V Launches in West Chester PA.",
+      description: "Launch of Gifts & Thrifts V in West Chester PA.",
+      icon: <Trophy className="h-4 w-4 sm:h-5 sm:w-5" />,
+      status: "future"
+    },
+
   ]
 
   return (
@@ -221,7 +246,7 @@ export function TimelineSection() {
             Our Roadmap
           </h2>
           <p className="text-sm sm:text-base md:text-lg text-muted-foreground text-center mb-8 sm:mb-10 md:mb-12 max-w-2xl mx-auto px-4 sm:px-0">
-            Here's how we plan to grow Collective Arc and create lasting impact through athletics, sustainability, and education.
+            Here's our story and how we plan to grow Collective ARC and create lasting impact through athletics, sustainability, and education.
           </p>
           
           <div className="relative max-w-5xl mx-auto">
@@ -240,7 +265,7 @@ export function TimelineSection() {
                   index % 2 === 0 ? 'md:pr-8 lg:pr-12 md:text-right' : 'md:pl-8 lg:pl-12 md:text-left'
                 }`}>
                   <Card className={`hover:shadow-lg transition-all duration-300 border-0 shadow ${
-                    milestone.status === 'current' ? 'ring-2 ring-green-500' : ''
+                    milestone.status === 'current' ? 'ring-2 ring-green-500' : milestone.status === 'past' ? 'opacity-80 grayscale' : ''
                   }`}>
                     <CardHeader className="pb-2 sm:pb-3">
                       <CardTitle className={`text-sm sm:text-base lg:text-lg flex items-center gap-2 ${
@@ -424,7 +449,7 @@ export function AthleteCTASection() {
               </h2>
               <p className="text-sm sm:text-base md:text-lg lg:text-xl mb-6 sm:mb-8 text-white/90">
                 Start your mentorship journey with Aiden McFadden, professional soccer player and Collective Arc founder. 
-                More athletes joining soon!
+                
               </p>
               <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
                 <Button 
@@ -442,23 +467,24 @@ export function AthleteCTASection() {
                   variant="outline" 
                   className="bg-transparent border-white text-white hover:bg-white/10 text-sm sm:text-base px-4 sm:px-6"
                 >
-                  Become a Mentor
+                  Enrollment Survey
                 </Button>
               </div>
             </div>
             
             {/* Stats Cards */}
-            <div className="grid grid-cols-2 gap-3 sm:gap-4">
+            <div className="grid grid-cols-1 gap-3 sm:gap-4">
               <Card className="bg-white/10 backdrop-blur-sm border-white/20 text-white p-4 sm:p-5 lg:p-6">
                 <Target className="h-6 w-6 sm:h-7 sm:w-7 lg:h-8 lg:w-8 mb-2 sm:mb-3" />
                 <div className="text-xl sm:text-2xl lg:text-3xl font-bold mb-0.5 sm:mb-1">50+</div>
                 <p className="text-xs sm:text-sm text-white/80">Athletes Joining Soon</p>
               </Card>
+              {/*}
               <Card className="bg-white/10 backdrop-blur-sm border-white/20 text-white p-4 sm:p-5 lg:p-6">
                 <MessageSquare className="h-6 w-6 sm:h-7 sm:w-7 lg:h-8 lg:w-8 mb-2 sm:mb-3" />
-                <div className="text-xl sm:text-2xl lg:text-3xl font-bold mb-0.5 sm:mb-1">3</div>
+                <div className="text-lg sm:text-2xl lg:text-3xl mb-0.5 sm:mb-1">Customizable</div>
                 <p className="text-xs sm:text-sm text-white/80">Session Types</p>
-              </Card>
+              </Card>*/}
               <Card className="bg-white/10 backdrop-blur-sm border-white/20 text-white p-4 sm:p-5 lg:p-6">
                 <Star className="h-6 w-6 sm:h-7 sm:w-7 lg:h-8 lg:w-8 mb-2 sm:mb-3" />
                 <div className="text-xl sm:text-2xl lg:text-3xl font-bold mb-0.5 sm:mb-1">$60</div>
@@ -466,8 +492,8 @@ export function AthleteCTASection() {
               </Card>
               <Card className="bg-white/10 backdrop-blur-sm border-white/20 text-white p-4 sm:p-5 lg:p-6">
                 <Users className="h-6 w-6 sm:h-7 sm:w-7 lg:h-8 lg:w-8 mb-2 sm:mb-3" />
-                <div className="text-xl sm:text-2xl lg:text-3xl font-bold mb-0.5 sm:mb-1">15+</div>
-                <p className="text-xs sm:text-sm text-white/80">Sports Coming</p>
+                <div className="text-xl sm:text-2xl lg:text-3xl font-bold mb-0.5 sm:mb-1">5+</div>
+                <p className="text-xs sm:text-sm text-white/80">Mentors Coming</p>
               </Card>
             </div>
           </div>

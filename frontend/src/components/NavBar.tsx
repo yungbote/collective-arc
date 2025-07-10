@@ -36,9 +36,9 @@ export function Navbar() {
       onClick={handleSidebarLinkClick}
     >
       <img
-        src="/logo.png"
+        src="/collective-arc-light.png"
         alt="Collective ARC logo"
-        className="h-8 w-auto flex-shrink-0"
+        className="h-9 w-auto flex-shrink-0"
       />
     </Link>
   )
