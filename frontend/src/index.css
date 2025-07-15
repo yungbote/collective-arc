@@ -359,3 +359,19 @@ img {
     font-size: 18px;
   }
 }
+
+/* utils/toggle.css (or inside your global styles.css) */
+@layer utilities {
+  .ask-toggle {
+    /*  Pill dimensions & styling (identical on all screens) */
+    @apply inline-flex items-center gap-1 whitespace-nowrap
+           text-sm leading-none font-medium
+           px-3 py-1               /* ≈32 px height → stays pill‑shaped */
+           rounded-full backdrop-blur-md
+           bg-green-500/10  dark:bg-green-400/10
+           hover:bg-green-500/20 dark:hover:bg-green-400/20
+           ring-1 ring-green-500/20 dark:ring-green-400/20
+           transition-all duration-300 hover:shadow-lg;
+  }
+}
+

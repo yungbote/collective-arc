@@ -1,8 +1,11 @@
 // src/components/Footer.tsx
 import { Link } from "react-router-dom"
 import { Facebook, Twitter, Instagram, Linkedin, Mail, Rocket, ArrowRight } from "lucide-react"
+import { useTheme } from "@/contexts/ThemeProvider"
 
 export function Footer() {
+  const { theme } = useTheme();
+
   const currentYear = new Date().getFullYear()
 
   const socialLinks = [
@@ -30,6 +33,10 @@ export function Footer() {
     ],
   }
 
+  const logoSrc =
+    theme === "dark" ? "/collective-arc-dark.png" : "/collective-arc-light.png"
+
+
   return (
     <footer className="w-full border-t bg-background" id="footer">
       {/* Main Footer */}
@@ -43,11 +50,11 @@ export function Footer() {
                 {/* Logo */}
                 <Link to="/" className="inline-flex items-center gap-2">
                   <img
-                    src="/logo.png"
+                    src={logoSrc}
                     alt="Collective Arc logo"
                     className="h-10 w-auto"
                   />
-                  <span className="font-bold text-xl">Collective Arc</span>
+                  {/*<span className="font-bold text-xl">Collective Arc</span>*/}
                 </Link>
                 
                 {/* Description */}
@@ -192,7 +199,7 @@ export function Footer() {
                   Terms of Service
                 </Link>
                 <a 
-                  href="mailto:info@collectivearc.org" 
+                  href="mailto:amcfadden@collectivearc.org" 
                   className="inline-flex items-center gap-1.5 text-muted-foreground transition-colors hover:text-foreground"
                 >
                   <Mail className="h-4 w-4" />

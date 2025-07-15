@@ -1,6 +1,12 @@
 // src/components/HomeSections/EnhancedSections.tsx
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion"
 import { useState, useEffect, useRef } from "react"
 import { Link } from "react-router-dom"
 import { 
@@ -160,158 +166,266 @@ export function TestimonialsSection() {
   )
 }
 
-// Timeline Section - Updated to show future plans
+
+/* ——————————————————————————————————
+   Timeline Section   –  grouped accordions
+—————————————————————————————————— */
+type Milestone = {
+  year: string
+  title: string
+  description: string
+  icon: JSX.Element
+  status: "past" | "current" | "future"
+}
+
 export function TimelineSection() {
-  const milestones = [
+  /* raw milestones ------------------------------------------------------- */
+  const milestones: Milestone[] = [
     {
       year: "2023",
-      quarter: "",
-      title: "Initial Conception Of Gifts & Thrifts",
-      description: "An idea for a popup thrifting exchange was formed in an Atlanta coffee shop.",
-      icon: <Rocket className="h-4 w-4 sm:h-5 sm:w-5" />,
-      status: "past"
+      title: "Initial Conception of Gifts & Thrifts",
+      description:
+        "An idea for a popup thrifting exchange was formed in an Atlanta coffee shop.",
+      icon: <Rocket className="h-4 w-4" />,
+      status: "past",
     },
     {
       year: "2024",
-      quarter: "",
-      title: "Gifts & Thrifs I Launches in West Chester PA",
-      description: "On January 6th, our first popup thrifting event was held.",
-      icon: <Users className="h-4 w-4 sm:h-5 sm:w-5" />,
-      status: "past"
+      title: "G&T I – West Chester PA",
+      description: "January 6: first popup thrifting event.",
+      icon: <Users className="h-4 w-4" />,
+      status: "past",
     },
     {
       year: "2024",
-      quarter: "",
-      title: "Gifts & Thrifts II Launches in West Chester PA",
-      description: "On May 18th, the West Chester Green Team held the event at Porch Fest.",
-      icon: <Leaf className="h-4 w-4 sm:h-5 sm:w-5" />,
-      status: "past"
+      title: "G&T II – Porch Fest",
+      description: "May 18: hosted by the West Chester Green Team.",
+      icon: <Leaf className="h-4 w-4" />,
+      status: "past",
     },
     {
       year: "2024",
-      quarter: "",
-      title: "Gifts & Thrifts III Launches in Lousville KY",
-      description: "In October, Gifts and Thrifts III launches in Lynn Family Stadium.",
-      icon: <BookOpen className="h-4 w-4 sm:h-5 sm:w-5" />,
-      status: "current"
+      title: "G&T III – Louisville KY",
+      description: "October: Lynn Family Stadium launch.",
+      icon: <BookOpen className="h-4 w-4" />,
+      status: "current",
     },
     {
       year: "2025",
-      quarter: "",
-      title: "Official Launch of Collective ARC",
-      description: "With our three core operations: ASK, ART, and ALL.",
-      icon: <TrendingUp className="h-4 w-4 sm:h-5 sm:w-5" />,
-      status: "future"
+      title: "Official Launch of Collective ARC",
+      description: "Introducing operations ASK, ART, ALL.",
+      icon: <TrendingUp className="h-4 w-4" />,
+      status: "future",
     },
     {
       year: "2025",
-      quarter: "",
-      title: "Mentorship Program Launches",
-      description: "Under operation ASK.",
-      icon: <Trophy className="h-4 w-4 sm:h-5 sm:w-5" />,
-      status: "future"
+      title: "Mentorship Program Launch",
+      description: "Part of operation ASK.",
+      icon: <Trophy className="h-4 w-4" />,
+      status: "future",
     },
     {
       year: "2025",
-      quarter: "",
-      title: "Gifts & Thrifts IV Launch",
-      description: "Launch at Lynn Family Stadium",
-      icon: <Trophy className="h-4 w-4 sm:h-5 sm:w-5" />,
-      status: "future"
+      title: "G&T IV – Louisville KY",
+      description: "Another Lynn Family Stadium event.",
+      icon: <Trophy className="h-4 w-4" />,
+      status: "future",
     },
     {
       year: "2025",
-      quarter: "",
       title: "School Outreach Partnerships Begin",
       description: "",
-      icon: <Trophy className="h-4 w-4 sm:h-5 sm:w-5" />,
-      status: "future"
+      icon: <Trophy className="h-4 w-4" />,
+      status: "future",
     },
     {
       year: "2026",
-      quarter: "",
-      title: "Gifts & Thrifts V Launches in West Chester PA.",
-      description: "Launch of Gifts & Thrifts V in West Chester PA.",
-      icon: <Trophy className="h-4 w-4 sm:h-5 sm:w-5" />,
-      status: "future"
+      title: "G&T V – West Chester PA",
+      description: "Back to where it began.",
+      icon: <Trophy className="h-4 w-4" />,
+      status: "future",
     },
-
   ]
+
+  /* groupings ------------------------------------------------------------ */
+  const past = milestones.filter((m) => m.status === "past")
+  const current = milestones.find((m) => m.status === "current") || null
+
+  const futureByYear = milestones.reduce<Record<string, Milestone[]>>(
+    (acc, m) => {
+      if (m.status !== "past") {
+        acc[m.year] = acc[m.year] ? [...acc[m.year], m] : [m]
+      }
+      return acc
+    },
+    {},
+  )
+  const years = Object.keys(futureByYear).sort()
+
+  const rep = (arr: Milestone[]) =>
+    arr.find((m) => m.status === "current") ||
+    arr.sort((a, b) => a.title.localeCompare(b.title))[0]
+
+  /* expanded-by-default accordion values */
+  const defaultVals = ["completed", ...years]
 
   return (
     <section className={`w-full ${SECTION_PADDING}`}>
       <div className={CONTAINER_PADDING}>
         <div className={MAX_WIDTH}>
-          <h2 className={`text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold tracking-tighter text-center ${HEADING_MARGIN}`}>
-            Our Roadmap
+          <h2
+            className={`text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold tracking-tighter text-center ${HEADING_MARGIN}`}
+          >
+            Our&nbsp;Roadmap
           </h2>
-          <p className="text-sm sm:text-base md:text-lg text-muted-foreground text-center mb-8 sm:mb-10 md:mb-12 max-w-2xl mx-auto px-4 sm:px-0">
-            Here's our story and how we plan to grow Collective ARC and create lasting impact through athletics, sustainability, and education.
+          <p className="text-sm sm:text-base md:text-lg text-muted-foreground text-center mb-12 max-w-2xl mx-auto">
+            Follow our journey as we build Collective ARC.
           </p>
-          
-          <div className="relative max-w-5xl mx-auto">
-            {/* Vertical Line */}
-            <div className="absolute left-4 sm:left-8 md:left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-green-500 via-emerald-500 to-teal-500" />
-            
-            {milestones.map((milestone, index) => (
-              <div 
-                key={index} 
-                className={`relative flex items-center mb-6 sm:mb-8 last:mb-0 ${
-                  index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'
-                }`}
-              >
-                {/* Content */}
-                <div className={`ml-12 sm:ml-16 md:ml-0 flex-1 ${
-                  index % 2 === 0 ? 'md:pr-8 lg:pr-12 md:text-right' : 'md:pl-8 lg:pl-12 md:text-left'
-                }`}>
-                  <Card className={`hover:shadow-lg transition-all duration-300 border-0 shadow ${
-                    milestone.status === 'current' ? 'ring-2 ring-green-500' : milestone.status === 'past' ? 'opacity-80 grayscale' : ''
-                  }`}>
-                    <CardHeader className="pb-2 sm:pb-3">
-                      <CardTitle className={`text-sm sm:text-base lg:text-lg flex items-center gap-2 ${
-                        index % 2 === 0 ? 'md:flex-row-reverse md:justify-end' : ''
-                      }`}>
-                        <span className="text-xl sm:text-2xl lg:text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-green-500 to-emerald-500">
-                          {milestone.year}
-                        </span>
-                        {milestone.quarter && <span className="text-xs sm:text-sm text-muted-foreground">{milestone.quarter}</span>}
-                        <span className="text-base sm:text-lg lg:text-xl">{milestone.title}</span>
-                      </CardTitle>
-                    </CardHeader>
-                    <CardContent>
-                      <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">{milestone.description}</p>
-                      {milestone.status === 'current' && (
-                        <span className="inline-block mt-2 text-xs bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-300 px-2 py-1 rounded-full">
-                          In Progress
-                        </span>
-                      )}
-                    </CardContent>
-                  </Card>
-                </div>
-                
-                {/* Hidden spacer for desktop */}
-                <div className="hidden md:block flex-1" />
-                
-                {/* Circle Marker */}
-                <div className={`absolute left-4 sm:left-8 md:left-1/2 -translate-x-1/2 w-8 h-8 sm:w-10 sm:h-10 bg-background rounded-full border-4 ${
-                  milestone.status === 'current' ? 'border-green-500 animate-pulse' : 
-                  milestone.status === 'upcoming' ? 'border-emerald-500' : 'border-teal-500'
-                } flex items-center justify-center shadow-lg`}>
-                  <div className={`${
-                    milestone.status === 'current' ? 'text-green-500' : 
-                    milestone.status === 'upcoming' ? 'text-emerald-500' : 'text-teal-500'
-                  }`}>
-                    {milestone.icon}
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
+
+          <Accordion
+            type="multiple"
+            defaultValue={defaultVals}
+            className="space-y-6 max-w-5xl mx-auto overflow-x-visible"
+          >
+            {/* Completed -------------------------------------------------- */}
+            <AccordionItem value="completed">
+              <AccordionTrigger className="no-underline hover:no-underline">
+                <span className="text-lg font-semibold">Completed</span>
+                <CollapsedInfo item={rep(past)} />
+              </AccordionTrigger>
+              <AccordionContent className="overflow-x-visible overflow-y-hidden">
+                <TimelineList items={past} />
+              </AccordionContent>
+            </AccordionItem>
+
+            {/* Year groups ------------------------------------------------ */}
+            {years.map((yr) => {
+              const items = futureByYear[yr]
+              return (
+                <AccordionItem key={yr} value={yr}>
+                  <AccordionTrigger className="no-underline hover:no-underline">
+                    <span className="text-lg font-semibold">{yr}</span>
+                    <CollapsedInfo item={rep(items)} />
+                  </AccordionTrigger>
+                  <AccordionContent className="overflow-x-visible overflow-y-hidden">
+                    <TimelineList items={items} />
+                  </AccordionContent>
+                </AccordionItem>
+              )
+            })}
+          </Accordion>
         </div>
       </div>
     </section>
   )
 }
+
+/* Collapsed row indicator --------------------------------------------------- */
+function CollapsedInfo({ item }: { item: Milestone }) {
+  const badge =
+    item.status === "current"
+      ? "In Progress"
+      : item.status === "past"
+      ? "Past"
+      : "Future"
+  const badgeCol =
+    item.status === "current"
+      ? "bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-300"
+      : item.status === "past"
+      ? "bg-teal-100 dark:bg-teal-900/30 text-teal-700 dark:text-teal-300"
+      : "bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300"
+
+  return (
+    <span className="ml-auto flex items-center gap-2 text-sm text-muted-foreground">
+      {item.title}
+      <span className={`px-2 py-[2px] rounded-full text-[10px] ${badgeCol}`}>
+        {badge}
+      </span>
+    </span>
+  )
+}
+
+/* Timeline item list -------------------------------------------------------- */
+function TimelineList({ items }: { items: Milestone[] }) {
+  return (
+    <div className="relative mt-6 overflow-visible">
+      <div className="absolute left-4 sm:left-8 md:left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-green-500 via-emerald-500 to-teal-500" />
+
+      {items.map((m, i) => (
+        <div
+          key={`${m.year}-${i}`}
+          className={`relative flex items-center mb-6 last:mb-0 ${
+            i % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
+          }`}
+        >
+          <div
+            className={`ml-12 sm:ml-16 md:ml-0 flex-1 ${
+              i % 2 === 0
+                ? "md:pr-8 lg:pr-12 md:text-right"
+                : "md:pl-8 lg:pl-12 md:text-left"
+            }`}
+          >
+            <Card
+              className={`relative z-10 border-0 shadow hover:shadow-lg transition mx-2 ${
+                m.status === "current"
+                  ? "ring-2 ring-green-500"
+                  : m.status === "past"
+                  ? "opacity-80 grayscale"
+                  : ""
+              }`}
+            >
+              <CardHeader className="pb-2">
+                <CardTitle
+                  className={`text-base lg:text-lg flex items-center gap-2 ${
+                    i % 2 === 0 ? "md:flex-row-reverse md:justify-end" : ""
+                  }`}
+                >
+                  <span className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-green-500 to-emerald-500">
+                    {m.year}
+                  </span>
+                  <span>{m.title}</span>
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-sm text-muted-foreground">
+                  {m.description}
+                </p>
+                {m.status !== "past" && (
+                  <span
+                    className={`inline-block mt-2 text-xs px-2 py-1 rounded-full ${
+                      m.status === "current"
+                        ? "bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-300"
+                        : "bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300"
+                    }`}
+                  >
+                    {m.status === "current" ? "In Progress" : "Future"}
+                  </span>
+                )}
+              </CardContent>
+            </Card>
+          </div>
+
+          <div className="hidden md:block flex-1" />
+
+          <div
+            className={`absolute left-4 sm:left-8 md:left-1/2 -translate-x-1/2 w-8 h-8 rounded-full border-2 bg-background shadow-lg flex items-center justify-center ${
+              m.status === "current"
+                ? "border-green-500 text-green-500 animate-pulse"
+                : m.status === "future"
+                ? "border-emerald-500 text-emerald-500"
+                : "border-teal-500 text-teal-500"
+            }`}
+          >
+            {m.icon}
+          </div>
+        </div>
+      ))}
+    </div>
+  )
+}
+
+
+
 
 // Upcoming Events Section - Updated for coming soon
 export function EventsSection() {

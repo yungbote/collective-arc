@@ -28,18 +28,17 @@ export function Navbar() {
   const displayedOperation = getDisplayedOperation()
 
   const handleSidebarLinkClick = () => setIsSidebarOpen(false)
-
+  
+  const logoSrc =
+    theme === "dark" ? "/collective-arc-dark.png" : "/collective-arc-light.png"
+  
   const LogoLink = (
     <Link
       to="/"
       className="flex items-center gap-2 min-w-0"
       onClick={handleSidebarLinkClick}
     >
-      <img
-        src="/collective-arc-light.png"
-        alt="Collective ARC logo"
-        className="h-9 w-auto flex-shrink-0"
-      />
+      <img src={logoSrc} alt="Collective ARC logo" className="h-9 w-auto" />
     </Link>
   )
 
