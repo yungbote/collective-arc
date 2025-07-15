@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: frontend-collective-arc
-          image: yungbote18/collective-arc-frontend:v1
+          image: yungbote18/collective-arc-frontend:20
           imagePullPolicy: Always
           ports:
             - containerPort: 80
