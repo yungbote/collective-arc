@@ -182,7 +182,7 @@ export function TimelineSection() {
   /* raw milestones ------------------------------------------------------- */
   const milestones: Milestone[] = [
     {
-      year: "2023",
+      year: "2024",
       title: "Initial Conception of Gifts & Thrifts",
       description:
         "An idea for a popup thrifting exchange was formed in an Atlanta coffee shop.",
@@ -208,26 +208,26 @@ export function TimelineSection() {
       title: "G&T III – Louisville KY",
       description: "October: Lynn Family Stadium launch.",
       icon: <BookOpen className="h-4 w-4" />,
-      status: "current",
+      status: "past",
     },
     {
       year: "2025",
       title: "Official Launch of Collective ARC",
       description: "Introducing operations ASK, ART, ALL.",
       icon: <TrendingUp className="h-4 w-4" />,
-      status: "future",
-    },
-    {
-      year: "2025",
-      title: "Mentorship Program Launch",
-      description: "Part of operation ASK.",
-      icon: <Trophy className="h-4 w-4" />,
-      status: "future",
+      status: "past",
     },
     {
       year: "2025",
       title: "G&T IV – Louisville KY",
       description: "Another Lynn Family Stadium event.",
+      icon: <Trophy className="h-4 w-4" />,
+      status: "current",
+    },
+        {
+      year: "2025",
+      title: "Mentorship Program Launch",
+      description: "Part of operation ASK.",
       icon: <Trophy className="h-4 w-4" />,
       status: "future",
     },
@@ -330,7 +330,7 @@ function CollapsedInfo({ item }: { item: Milestone }) {
       : "Future"
   const badgeCol =
     item.status === "current"
-      ? "bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-300"
+      ? "bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-300 animate-pulse"
       : item.status === "past"
       ? "bg-teal-100 dark:bg-teal-900/30 text-teal-700 dark:text-teal-300"
       : "bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300"
@@ -410,7 +410,7 @@ function TimelineList({ items }: { items: Milestone[] }) {
           <div
             className={`absolute left-4 sm:left-8 md:left-1/2 -translate-x-1/2 w-8 h-8 rounded-full border-2 bg-background shadow-lg flex items-center justify-center ${
               m.status === "current"
-                ? "border-green-500 text-green-500 animate-pulse"
+                ? "border-green-500 text-green-500 animate-pulse bg-green-200/30"
                 : m.status === "future"
                 ? "border-emerald-500 text-emerald-500"
                 : "border-teal-500 text-teal-500"

@@ -17,9 +17,9 @@ export function Footer() {
 
   const footerLinks = {
     operations: [
-      { name: "Operation Ask", href: "/operations/ask" },
-      { name: "Operation Art", href: "/operations/art" },
-      { name: "Operation All", href: "/operations/all" },
+      { name: "Operation ASK", href: "/operations/ask" },
+      { name: "Operation ART", href: "/operations/art" },
+      { name: "Operation ALL", href: "/operations/all" },
     ],
     company: [
       { name: "About Us", href: "/about" },
@@ -59,7 +59,7 @@ export function Footer() {
                 
                 {/* Description */}
                 <p className="mt-4 text-sm leading-6 text-muted-foreground">
-                  Launching 2025: A movement where athletes unite to create positive change through knowledge sharing, environmental action, and educational initiatives.
+                  Be Part of Something Bigger: We're just getting started. Whether you're an athlete looking to give back, a community member passionate about sustainability, or someone who believes in the power of education, there's a place for you in the Collective ARC.
                 </p>
                 
                 {/* Launch Badge */}
@@ -121,10 +121,12 @@ export function Footer() {
                   ))}
                 </ul>
               </div>
-
+              
               {/* Get Involved */}
+              
               <div className="col-span-2 sm:col-span-1">
                 <h3 className="text-sm font-semibold leading-6 text-foreground">Get Involved</h3>
+                {/*
                 <ul role="list" className="mt-4 space-y-3">
                   {footerLinks.getInvolved.map((link) => (
                     <li key={link.name}>
@@ -137,10 +139,12 @@ export function Footer() {
                     </li>
                   ))}
                 </ul>
+                */}
               </div>
             </div>
           </div>
         </div>
+        
 
         {/* Newsletter Section */}
         {/*<div className="border-t border-border/40">

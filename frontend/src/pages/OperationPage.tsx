@@ -27,12 +27,12 @@ interface OperationPageProps {
 
 const operationContent = {
   ask: {
-    title: "Operation Ask",
+    title: "Operation ASK",
     subtitle: "Athletes Sharing Knowledge",
     icon: <Users className="h-16 w-16 text-green-500" />,
     description:
       "A network of collective knowledge, fostering mentorship and shared experiences among athletes.",
-    longDescription: `Imagine if you could travel back in time and share some wisdom with your younger self? Imagine how advantageous even the slightest insights might have proven if they’d been shared with you, for you, by someone you would have taken the time to listen to? Operation ASK wants to be your time machine, to be your guiding voice. We want to help you successfully navigate your athletic journey. Who better to offer insights on your athletic journey than someone who has already climbed a similar mountain or found their way out of a similar maze? We cannot guarantee results, but we can guarantee access to our collection of acquired intelligence. It might not be much, or it could be everything. What you do with it is up to you, but we are here to help. All you have to do is ASK.`,
+    longDescription: `Operation ASK allows aspiring athletes to talk with experienced athletes. Our ever-growing team consists of players who have graduated from college and/or players who have played or are playing professionally. As we gauge your interest, we can bring on more athletes who better fit your needs. The goal is to set you up with someone you can relate to so you can ask them questions about their journey that may prove instrumental in yours.`,
     color: "green",
     gradient: "from-green-500 to-emerald-500",
     borderColor: "border-green-500",
@@ -64,12 +64,12 @@ const operationContent = {
     ]
   },
   art: {
-    title: "Operation Art",
+    title: "Operation ART",
     subtitle: "Athletes Recycling & Thrifting",
     icon: <Recycle className="h-16 w-16 text-emerald-500" />,
     description:
       "Events and services combating destructive environmental practices through sustainable actions.",
-    longDescription: `Operation ART (Athletes Recycling Knowledge) was the formal inception of Collective ARC; Originally titled Gifts & Thrifts, Aiden started a pop-up clothing exchange in West Chester, PA in 2024 before expanding into Louisville Ky. The Collective ARC coalition is currently looking to further combat the saturated and destructive market of fast fashion while offering creative solutions to a multitude of other environmwtal issues.`,
+    longDescription:"Operation ART was the formal inception of Collective ARC; Originally titled Gifts & Thrifts, Aiden started a pop-up clothing exchange in West Chester, PA, in 2024 before expanding into Louisville Ky. The Collective ARC coalition plans to continue combating the saturated and destructive market of fast fashion while offering creative solutions to a multitude of other environmental issues.",
     color: "emerald",
     gradient: "from-emerald-500 to-teal-500",
     borderColor: "border-emerald-500",
@@ -101,7 +101,7 @@ const operationContent = {
     ]
   },
   all: {
-    title: "Operation All",
+    title: "Operation ALL",
     subtitle: "Athletes Learning & Literacy",
     icon: <BookOpen className="h-16 w-16 text-teal-500" />,
     description:
@@ -115,7 +115,7 @@ const operationContent = {
         icon: <BookOpen className="h-6 w-6" />,
         title: "Reading Programs",
         description:
-          "Athletes visit schools to read with students, showing that champions are readers too."
+          "Athletes visit schools, camps, and events to read with students."
       },
       {
         icon: <Users className="h-6 w-6" />,
@@ -127,7 +127,7 @@ const operationContent = {
         icon: <Target className="h-6 w-6" />,
         title: "Educational Resources Network: coming soon",
         description:
-          "Develop sports‑themed learning materials that make education exciting and relevant."
+          "Developing sports‑themed learning materials that make education accessible."
       }
     ],
     goals: [

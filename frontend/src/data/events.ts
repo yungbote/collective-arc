@@ -1,4 +1,4 @@
-// ──────────────────────────────────────────────────────────────────────────────
+// ── e───────────────────────────────────────────────────────────────────────────
 //  Event model
 // ──────────────────────────────────────────────────────────────────────────────
 export interface Event {
@@ -11,11 +11,7 @@ export interface Event {
   endTime?: string
   location: string
   address?: string
-
-  /* NEW (optional) – lets us show Past / In Progress / Upcoming badges
-     without touching styles elsewhere                                       */
   status?: "past" | "current" | "future"
-
   type: "ask" | "art" | "all"
   category: string
   spots: number
@@ -31,6 +27,7 @@ export interface Event {
   contactEmail?: string
   tags?: string[]
   isComingSoon?: boolean
+  gallery?: string[]
 }
 
 // ──────────────────────────────────────────────────────────────────────────────
@@ -41,31 +38,42 @@ export const events: Event[] = [
     id: "gnt-i-west-chester-pa",
     title: "G&T I – West Chester PA",
     description: "January 6 2024 • first popup thrifting event.",
+    fullDescription:
+      "Our inaugural Gift & Thrift event was a huge success! We gathered in West Chester for a day of community, sustainability, and fun. Thanks to everyone who came out to donate, thrift, and support our mission. The event featured a wide variety of pre-loved clothing, accessories, and home goods, with all proceeds going towards our athlete-led initiatives.",
     date: "2024-01-06",
     location: "West Chester, PA",
     status: "past",
-
     type: "art",
     category: "Gifts & Thrifts",
     spots: 0,
     spotsAvailable: 0,
     price: 0,
     featured: false,
+    gallery: [
+      "/wc-five.jpeg?height=300&width=300",
+      "/wc-one.jpeg?height=300&width=300",
+      "/wc-two.jpeg?height=300&width=300",
+      "/wc-three.jpeg?height=300&width=300",
+      "/wc-four.jpeg?height=300&width=300",
+    ],
   },
   {
     id: "gnt-ii-porch-fest",
     title: "G&T II – Porch Fest",
     description: "May 18 2024 • hosted by the West Chester Green Team.",
+    fullDescription:
+      "We were thrilled to partner with the West Chester Green Team for Porch Fest! Our pop-up thrift shop was a highlight of the festival, promoting sustainable fashion and raising funds for environmental causes. The atmosphere was electric, with live music, local vendors, and a strong sense of community spirit. It was a perfect day to connect with nature and friends.",
     date: "2024-05-18",
     location: "West Chester, PA",
     status: "past",
-
     type: "art",
     category: "Gifts & Thrifts",
     spots: 0,
     spotsAvailable: 0,
     price: 0,
     featured: false,
+    gallery: [
+    ],
   },
   {
     id: "gnt-iii-louisville",
@@ -73,14 +81,18 @@ export const events: Event[] = [
     description: "October 2024 • Lynn Family Stadium launch (ongoing).",
     date: "2024-10-15",
     location: "Louisville, KY",
-    status: "current",
-
+    status: "past",
     type: "art",
     category: "Gifts & Thrifts",
     spots: 0,
     spotsAvailable: 0,
     price: 0,
     featured: true,
+    gallery: [
+      "/ky-one.jpeg?height=300&width=300",
+      "/ky-two.jpeg?height=300&width=300",
+      "/ky-three.jpeg?height=300&width=300",
+    ],
   },
   {
     id: "gnt-iv-louisville",
@@ -89,7 +101,6 @@ export const events: Event[] = [
     date: "2025-05-10",
     location: "Louisville, KY",
     status: "future",
-
     type: "art",
     category: "Gifts & Thrifts",
     spots: 0,
@@ -104,7 +115,6 @@ export const events: Event[] = [
     date: "2026-06-01",
     location: "West Chester, PA",
     status: "future",
-
     type: "art",
     category: "Gifts & Thrifts",
     spots: 0,
@@ -112,7 +122,6 @@ export const events: Event[] = [
     price: 0,
     featured: false,
   },
-
   // ───────── (other non‑G&T events stay exactly as they were) ─────────
   {
     id: "ask-mentorship-launch",
@@ -123,7 +132,6 @@ export const events: Event[] = [
     date: "2025-08-01",
     location: "Virtual & In‑Person Options",
     status: "future",
-
     type: "ask",
     category: "Mentorship",
     spots: 50,
@@ -138,13 +146,11 @@ export const events: Event[] = [
   {
     id: "art-equipment-drive",
     title: "Equipment Recycling Initiative",
-    description:
-      "Help us launch our sustainable sports equipment program. Donate, volunteer, or become a partner.",
+    description: "Help us launch our sustainable sports equipment program. Donate, volunteer, or become a partner.",
     fullDescription: `We're preparing to launch a comprehensive equipment recycling program ...`,
     date: "2025-09-15",
     location: "Multiple Locations (TBA)",
     status: "future",
-
     type: "art",
     category: "Environmental",
     spots: 200,
@@ -159,13 +165,11 @@ export const events: Event[] = [
   {
     id: "all-reading-program",
     title: "Athletes & Literacy Program",
-    description:
-      "Professional athletes will visit schools to promote literacy through sports-themed reading sessions.",
+    description: "Professional athletes will visit schools to promote literacy through sports-themed reading sessions.",
     fullDescription: `We're developing an exciting literacy program that brings together professional athletes ...`,
     date: "2025-10-01",
     location: "Partner Schools (TBA)",
     status: "future",
-
     type: "all",
     category: "Education",
     spots: 100,

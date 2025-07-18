@@ -86,6 +86,46 @@ export function NavLinks({
         <Link to="/about">About</Link>
       </Button>
 
+      {/* OPERATIONS DROPDOWN */}
+      <DropdownMenu>
+        <DropdownMenuTrigger asChild>
+          <Button 
+            variant="ghost" 
+            className={cn(getButtonClass("operations"), "gap-1.5")}
+          >
+            <span>Operations</span>
+            <ChevronDown className="h-4 w-4 opacity-50 transition-transform duration-200 group-data-[state=open]:rotate-180" />
+          </Button>
+        </DropdownMenuTrigger>
+        <DropdownMenuContent
+          align={isMobileLayout ? "start" : "end"}
+          className="w-48"
+        >
+          <DropdownMenuItem
+            onClick={() => handleLinkClick("operations:ask")}
+            className={getDropdownItemClass("operations:ask")}
+            asChild
+          >
+            <Link to="/operations/ask">ASK</Link>
+          </DropdownMenuItem>
+          <DropdownMenuItem
+            onClick={() => handleLinkClick("operations:art")}
+            className={getDropdownItemClass("operations:art")}
+            asChild
+          >
+            <Link to="/operations/art">ART</Link>
+          </DropdownMenuItem>
+          <DropdownMenuItem
+            onClick={() => handleLinkClick("operations:all")}
+            className={getDropdownItemClass("operations:all")}
+            asChild
+          >
+            <Link to="/operations/all">ALL</Link>
+          </DropdownMenuItem>
+        </DropdownMenuContent>
+      </DropdownMenu>
+
+
       {/* EVENTS DROPDOWN */}
       <DropdownMenu>
         <DropdownMenuTrigger asChild>
@@ -206,45 +246,6 @@ export function NavLinks({
             <Link to="/athletes">
               View All Athletes →
             </Link>
-          </DropdownMenuItem>
-        </DropdownMenuContent>
-      </DropdownMenu>
-
-      {/* OPERATIONS DROPDOWN */}
-      <DropdownMenu>
-        <DropdownMenuTrigger asChild>
-          <Button 
-            variant="ghost" 
-            className={cn(getButtonClass("operations"), "gap-1.5")}
-          >
-            <span>Operations</span>
-            <ChevronDown className="h-4 w-4 opacity-50 transition-transform duration-200 group-data-[state=open]:rotate-180" />
-          </Button>
-        </DropdownMenuTrigger>
-        <DropdownMenuContent
-          align={isMobileLayout ? "start" : "end"}
-          className="w-48"
-        >
-          <DropdownMenuItem
-            onClick={() => handleLinkClick("operations:ask")}
-            className={getDropdownItemClass("operations:ask")}
-            asChild
-          >
-            <Link to="/operations/ask">Ask</Link>
-          </DropdownMenuItem>
-          <DropdownMenuItem
-            onClick={() => handleLinkClick("operations:art")}
-            className={getDropdownItemClass("operations:art")}
-            asChild
-          >
-            <Link to="/operations/art">Art</Link>
-          </DropdownMenuItem>
-          <DropdownMenuItem
-            onClick={() => handleLinkClick("operations:all")}
-            className={getDropdownItemClass("operations:all")}
-            asChild
-          >
-            <Link to="/operations/all">All</Link>
           </DropdownMenuItem>
         </DropdownMenuContent>
       </DropdownMenu>
